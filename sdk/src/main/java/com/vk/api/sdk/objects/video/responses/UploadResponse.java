@@ -14,7 +14,7 @@ public class UploadResponse implements Validable {
      * Video size
      */
     @SerializedName("size")
-    private Integer size;
+    private Long size;
 
     /**
      * Video ID
@@ -22,11 +22,11 @@ public class UploadResponse implements Validable {
     @SerializedName("video_id")
     private Integer videoId;
 
-    public Integer getSize() {
+    public Long getSize() {
         return size;
     }
 
-    public UploadResponse setSize(Integer size) {
+    public UploadResponse setSize(Long size) {
         this.size = size;
         return this;
     }
