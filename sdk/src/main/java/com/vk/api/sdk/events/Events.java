@@ -3,7 +3,26 @@ package com.vk.api.sdk.events;
 import com.google.gson.annotations.SerializedName;
 import com.vk.api.sdk.objects.audio.Audio;
 import com.vk.api.sdk.objects.board.TopicComment;
-import com.vk.api.sdk.objects.callback.*;
+import com.vk.api.sdk.objects.callback.BoardPostDelete;
+import com.vk.api.sdk.objects.callback.GroupChangePhoto;
+import com.vk.api.sdk.objects.callback.GroupChangeSettings;
+import com.vk.api.sdk.objects.callback.GroupJoin;
+import com.vk.api.sdk.objects.callback.GroupLeave;
+import com.vk.api.sdk.objects.callback.GroupOfficersEdit;
+import com.vk.api.sdk.objects.callback.MarketComment;
+import com.vk.api.sdk.objects.callback.MarketCommentDelete;
+import com.vk.api.sdk.objects.callback.MessageAllow;
+import com.vk.api.sdk.objects.callback.MessageDeny;
+import com.vk.api.sdk.objects.callback.MessageObject;
+import com.vk.api.sdk.objects.callback.PhotoComment;
+import com.vk.api.sdk.objects.callback.PhotoCommentDelete;
+import com.vk.api.sdk.objects.callback.PollVoteNew;
+import com.vk.api.sdk.objects.callback.UserBlock;
+import com.vk.api.sdk.objects.callback.UserUnblock;
+import com.vk.api.sdk.objects.callback.VideoComment;
+import com.vk.api.sdk.objects.callback.VideoCommentDelete;
+import com.vk.api.sdk.objects.callback.WallCommentDelete;
+import com.vk.api.sdk.objects.market.Order;
 import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.objects.photos.Photo;
 import com.vk.api.sdk.objects.video.Video;
@@ -15,7 +34,7 @@ import java.lang.reflect.Type;
 public enum Events {
 
     @SerializedName("message_new")
-    MESSAGE_NEW(Message.class),
+    MESSAGE_NEW(MessageObject.class),
 
     @SerializedName("message_reply")
     MESSAGE_REPLY(Message.class),
@@ -103,6 +122,15 @@ public enum Events {
 
     @SerializedName("market_comment_delete")
     MARKET_COMMENT_DELETE(MarketCommentDelete.class),
+
+    @SerializedName("market_order_new")
+    MARKET_ORDER_NEW(Order.class),
+
+    @SerializedName("market_order_edit")
+    MARKET_ORDER_EDIT(Order.class),
+
+    @SerializedName("market_order_view")
+    MARKET_ORDER_VIEW(Order.class),
 
     @SerializedName("group_leave")
     GROUP_LEAVE(GroupLeave.class),

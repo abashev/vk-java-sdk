@@ -4,15 +4,34 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.vk.api.sdk.objects.audio.Audio;
 import com.vk.api.sdk.objects.board.TopicComment;
-import com.vk.api.sdk.objects.callback.*;
+import com.vk.api.sdk.objects.callback.BoardPostDelete;
+import com.vk.api.sdk.objects.callback.GroupChangePhoto;
+import com.vk.api.sdk.objects.callback.GroupChangeSettings;
+import com.vk.api.sdk.objects.callback.GroupJoin;
+import com.vk.api.sdk.objects.callback.GroupLeave;
+import com.vk.api.sdk.objects.callback.GroupOfficersEdit;
+import com.vk.api.sdk.objects.callback.MarketComment;
+import com.vk.api.sdk.objects.callback.MarketCommentDelete;
+import com.vk.api.sdk.objects.callback.MessageAllow;
+import com.vk.api.sdk.objects.callback.MessageDeny;
+import com.vk.api.sdk.objects.callback.MessageObject;
+import com.vk.api.sdk.objects.callback.PhotoComment;
+import com.vk.api.sdk.objects.callback.PhotoCommentDelete;
+import com.vk.api.sdk.objects.callback.PollVoteNew;
+import com.vk.api.sdk.objects.callback.UserBlock;
+import com.vk.api.sdk.objects.callback.UserUnblock;
+import com.vk.api.sdk.objects.callback.VideoComment;
+import com.vk.api.sdk.objects.callback.VideoCommentDelete;
+import com.vk.api.sdk.objects.callback.WallCommentDelete;
 import com.vk.api.sdk.objects.callback.messages.CallbackMessage;
+import com.vk.api.sdk.objects.market.Order;
 import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.objects.photos.Photo;
 import com.vk.api.sdk.objects.video.Video;
 import com.vk.api.sdk.objects.wall.WallComment;
 import com.vk.api.sdk.objects.wall.Wallpost;
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class EventsHandler {
 
@@ -31,7 +50,7 @@ public abstract class EventsHandler {
         return null;
     }
 
-    protected void messageNew(Integer groupId, Message message) {
+    protected void messageNew(Integer groupId, MessageObject message) {
         LOG.error(OVERRIDING_ERR);
     }
 
@@ -148,6 +167,18 @@ public abstract class EventsHandler {
     }
 
     protected void marketCommentDelete(Integer groupId, MarketCommentDelete message) {
+        LOG.error(OVERRIDING_ERR);
+    }
+
+    protected void marketOrderNew(Integer groupId, Order order) {
+        LOG.error(OVERRIDING_ERR);
+    }
+
+    protected void marketOrderEdit(Integer groupId, Order order) {
+        LOG.error(OVERRIDING_ERR);
+    }
+
+    protected void marketOrderView(Integer groupId, Order order) {
         LOG.error(OVERRIDING_ERR);
     }
 
@@ -276,6 +307,15 @@ public abstract class EventsHandler {
                 break;
             case MARKET_COMMENT_DELETE:
                 marketCommentDelete(message.getGroupId(), designateObject(message.getObject(), message.getType()));
+                break;
+            case MARKET_ORDER_NEW:
+                marketOrderNew(message.getGroupId(), designateObject(message.getObject(), message.getType()));
+                break;
+            case MARKET_ORDER_EDIT:
+                marketOrderEdit(message.getGroupId(), designateObject(message.getObject(), message.getType()));
+                break;
+            case MARKET_ORDER_VIEW:
+                marketOrderView(message.getGroupId(), designateObject(message.getObject(), message.getType()));
                 break;
             case GROUP_LEAVE:
                 groupLeave(message.getGroupId(), designateObject(message.getObject(), message.getType()));

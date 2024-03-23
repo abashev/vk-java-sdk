@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import com.vk.api.sdk.objects.Validable;
 import com.vk.api.sdk.objects.annotations.Required;
 import com.vk.api.sdk.objects.base.Link;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -100,6 +101,12 @@ public class Order implements Validable {
 
     @SerializedName("weight")
     private Integer weight;
+
+    @SerializedName("delivery")
+    private Delivery delivery;
+
+    @SerializedName("recipient")
+    private Recipient recipient;
 
     public String getAddress() {
         return address;
@@ -290,37 +297,37 @@ public class Order implements Validable {
         return this;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(date, address, trackNumber, totalPrice, cancelInfo, dateViewed, isViewedByAdmin, groupId, discount, weight, canAddReview, userId, itemsCount, merchantComment, trackLink, comment, commentForUser, id, previewOrderItems, displayOrderId, status);
+    public Delivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+    }
+
+    public Recipient getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(Recipient recipient) {
+        this.recipient = recipient;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Order order = (Order) o;
-        return Objects.equals(date, order.date) &&
-                Objects.equals(address, order.address) &&
-                Objects.equals(canAddReview, order.canAddReview) &&
-                Objects.equals(totalPrice, order.totalPrice) &&
-                Objects.equals(discount, order.discount) &&
-                Objects.equals(weight, order.weight) &&
-                Objects.equals(commentForUser, order.commentForUser) &&
-                Objects.equals(dateViewed, order.dateViewed) &&
-                Objects.equals(isViewedByAdmin, order.isViewedByAdmin) &&
-                Objects.equals(trackLink, order.trackLink) &&
-                Objects.equals(itemsCount, order.itemsCount) &&
-                Objects.equals(groupId, order.groupId) &&
-                Objects.equals(userId, order.userId) &&
-                Objects.equals(comment, order.comment) &&
-                Objects.equals(trackNumber, order.trackNumber) &&
-                Objects.equals(id, order.id) &&
-                Objects.equals(displayOrderId, order.displayOrderId) &&
-                Objects.equals(merchantComment, order.merchantComment) &&
-                Objects.equals(cancelInfo, order.cancelInfo) &&
-                Objects.equals(previewOrderItems, order.previewOrderItems) &&
-                Objects.equals(status, order.status);
+        return Objects.equals(address, order.address) && Objects.equals(canAddReview, order.canAddReview) && Objects.equals(cancelInfo, order.cancelInfo) && Objects.equals(comment, order.comment) && Objects.equals(commentForUser, order.commentForUser) && Objects.equals(date, order.date) && Objects.equals(dateViewed, order.dateViewed) && Objects.equals(discount, order.discount) && Objects.equals(displayOrderId, order.displayOrderId) && Objects.equals(groupId, order.groupId) && Objects.equals(id, order.id) && Objects.equals(isViewedByAdmin, order.isViewedByAdmin) && Objects.equals(itemsCount, order.itemsCount) && Objects.equals(merchantComment, order.merchantComment) && Objects.equals(previewOrderItems, order.previewOrderItems) && Objects.equals(status, order.status) && Objects.equals(totalPrice, order.totalPrice) && Objects.equals(trackLink, order.trackLink) && Objects.equals(trackNumber, order.trackNumber) && Objects.equals(userId, order.userId) && Objects.equals(weight, order.weight) && Objects.equals(delivery, order.delivery) && Objects.equals(recipient, order.recipient);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(address, canAddReview, cancelInfo, comment, commentForUser, date, dateViewed, discount, displayOrderId, groupId, id, isViewedByAdmin, itemsCount, merchantComment, previewOrderItems, status, totalPrice, trackLink, trackNumber, userId, weight, delivery, recipient);
     }
 
     @Override
