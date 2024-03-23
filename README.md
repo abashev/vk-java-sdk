@@ -1,6 +1,36 @@
 ## Java SDK for VK API
 
-[![Build Status](https://travis-ci.org/VKCOM/vk-java-sdk.svg?branch=master)](https://travis-ci.org/VKCOM/vk-java-sdk)
+It looks like VK have lost faith in supporting original version but a lot of fixes are waiting in JSON schema and original implementation. There is list of TODOs I want to implement with this repo.
+
+- [ ] Add Jitpack ability to build up the project
+- [ ] Migrate CI to Github actions
+- [ ] Apply new version scheme from Json version - branch per major version TBD 
+- [ ] Apply fixes for Json-schema as part of Java code
+- [ ] Remove logging and netty from required dependencies
+- [ ] Implement compile-time code generation from original schema 😳
+- [ ] Maven Central (???)
+
+### Use with Gradle
+
+Current version could be cloned and used without any modifications. To with Gradle add this to settings.gradle 
+
+    dependencyResolutionManagement {
+        repositories {
+            .........
+            maven { url "https://jitpack.io" }
+        }
+    }
+
+and add dependency 
+
+	implementation('com.github.abashev:vk-java-sdk:master-SNAPSHOT') {
+		exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
+	}
+
+
+
+----
+ORIGINAL README
 
 Java library for VK API interaction, includes OAuth 2.0 authorization and API methods. Full VK API features documentation can be found [here](http://vk.com/dev).
 
@@ -8,7 +38,7 @@ This library has been created using the VK API JSON Schema. It can be found [her
 
 ## 1. Prerequisites
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 15 or later
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 11 or later
 * [Gradle](https://gradle.org/) 7.4.2 or later
 
 ## 2. Dependencies

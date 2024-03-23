@@ -1,15 +1,9 @@
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
-    group 'com.vk.api'
-    version '1.0.15'
-
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-
-    tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-    }
+    sourceCompatibility = 11
+    targetCompatibility = 11
 
     repositories {
         mavenCentral()
@@ -33,5 +27,27 @@ subprojects {
         commonsLangVersion = '3.6'
         jacksonVersion = '2.8.5'
         jettyVersion = '9.4.0.v20161208'
+    }
+
+    tasks.withType(Javadoc).configureEach {
+        // disable the crazy super-strict doclint tool in Java 8
+        //noinspection SpellCheckingInspection
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId project.group
+                artifactId project.name
+                version project.version
+                from components.java
+            }
+        }
     }
 }
