@@ -9,9 +9,5 @@ dependencies {
     implementation group: 'org.asynchttpclient', name: 'async-http-client', version: asyncHttpClientVersion
     implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: httpClientVersion
     implementation group: 'org.apache.httpcomponents', name: 'httpmime', version: httpClientVersion
-
-    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: log4jVersion
-    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
-    testImplementation group: 'org.testng', name: 'testng', version: testngVersion
 }
 

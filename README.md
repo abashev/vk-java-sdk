@@ -2,8 +2,8 @@
 
 It looks like VK have lost faith in supporting original version but a lot of fixes are waiting in JSON schema and original implementation. There is list of TODOs I want to implement with this repo.
 
-- [ ] Add Jitpack ability to build up the project
-- [ ] Migrate CI to Github actions
+- [X] Add Jitpack ability to build up the project
+- [X] Migrate CI to Github actions
 - [ ] Apply new version scheme from Json version - branch per major version TBD 
 - [ ] Apply fixes for Json-schema as part of Java code
 - [ ] Remove logging and netty from required dependencies
@@ -30,7 +30,7 @@ and add dependency
 
 
 ----
-ORIGINAL README
+## ORIGINAL README
 
 Java library for VK API interaction, includes OAuth 2.0 authorization and API methods. Full VK API features documentation can be found [here](http://vk.com/dev).
 
