@@ -1,13 +1,13 @@
 dependencies {
-    implementation group: 'com.google.code.gson', name: 'gson', version: gsonVersion
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    api "com.google.code.gson:gson:$gsonVersion"
+    api "org.slf4j:slf4j-api:$slf4jVersion"
+    api "org.apache.httpcomponents:httpclient:$httpClientVersion"
+    api "org.apache.httpcomponents:httpmime:$httpClientVersion"
 
     implementation group: 'org.apache.commons', name: 'commons-text', version: commonsTextVersion
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: commonsLangVersion
     implementation group: 'org.apache.commons', name: 'commons-collections4', version: commonsCollectionsVersion
     implementation group: 'commons-io', name: 'commons-io', version: commonsIOVersion
     implementation group: 'org.asynchttpclient', name: 'async-http-client', version: asyncHttpClientVersion
-    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: httpClientVersion
-    implementation group: 'org.apache.httpcomponents', name: 'httpmime', version: httpClientVersion
 }
 
