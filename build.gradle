@@ -21,7 +21,7 @@ subprojects {
         commonsCollectionsVersion = '4.4'
         javapoetVersion = '1.6.1'
         httpCoreVersion = '4.4.11'
-        httpClientVersion = '4.5.13'
+        httpClientVersion = '4.5.14'
         asyncHttpClientVersion = '2.12.3'
         guavaVersion = '20.0'
         commonsLangVersion = '3.6'
