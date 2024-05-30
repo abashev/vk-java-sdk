@@ -108,6 +108,9 @@ public class Order implements Validable {
     @SerializedName("recipient")
     private Recipient recipient;
 
+    @SerializedName("payment")
+    private Payment payment;
+
     public String getAddress() {
         return address;
     }
@@ -311,6 +314,14 @@ public class Order implements Validable {
 
     public void setRecipient(Recipient recipient) {
         this.recipient = recipient;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     @Override

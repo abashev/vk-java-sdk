@@ -24,7 +24,10 @@ public class Delivery {
     @SerializedName("track_link")
     private String trackLink;
 
-    /** информация о пункте выдачи */
+    /**
+     * информация о пункте выдачи
+     * delivery_point":{"id":9477,"external_id":"MSK2219","outpost_only":true,"cash_only":false,"address":{"id":82467,"additional_address":"Почтомат Халва. Войти в магазин Ароматный мир через центральный вход, на 1 этаже около входа расположен почтомат.","address":"117393, Москва, ул. Академика Пилюгина, 18","city_id":1,"country_id":1,"city":{"id":1,"title":"Москва"},"country":{"id":1,"title":"Россия"},"latitude":55.668452,"longitude":37.533840,"timetable":{"fri":{"close_time":1350,"open_time":570,"break_close_time":0,"break_open_time":0},"mon":{"close_time":1350,"open_time":570,"break_close_time":0,"break_open_time":0},"sat":{"close_time":1350,"open_time":570,"break_close_time":0,"break_open_time":0},"sun":{"close_time":1320,"open_time":600,"break_close_time":0,"break_open_time":0},"thu":{"close_time":1350,"open_time":570,"break_close_time":0,"break_open_time":0},"tue":{"close_time":1350,"open_time":570,"break_close_time":0,"break_open_time":0},"wed":{"close_time":1350,"open_time":570,"break_close_time":0,"break_open_time":0}},"title":"3406 Постамат Халва","work_info_status":"timetable"},"display_title":"СДЭК","service_id":3}}
+     * */
     @SerializedName("delivery_point")
     private String deliveryPoint;
 
