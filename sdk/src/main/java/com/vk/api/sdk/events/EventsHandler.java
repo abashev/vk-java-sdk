@@ -39,7 +39,15 @@ public abstract class EventsHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventsHandler.class);
 
-    protected final Gson gson = new Gson();
+    protected final Gson gson;
+
+    public EventsHandler(Gson gson) {
+        this.gson = gson;
+    }
+
+    public EventsHandler() {
+        this.gson = new Gson();
+    }
 
     private <T> T designateObject(JsonObject object, Events type) {
         return gson.fromJson(object, type.getType());

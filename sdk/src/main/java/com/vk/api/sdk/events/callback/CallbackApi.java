@@ -1,5 +1,6 @@
 package com.vk.api.sdk.events.callback;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.vk.api.sdk.events.EventsHandler;
 import com.vk.api.sdk.objects.callback.messages.CallbackMessage;
@@ -33,6 +34,13 @@ public abstract class CallbackApi extends EventsHandler {
     }
 
     protected CallbackApi(String confirmationCode, String secretKey) {
+        this.confirmationCode = confirmationCode;
+        this.secretKey = secretKey;
+    }
+
+    protected CallbackApi(String confirmationCode, String secretKey, Gson gson) {
+        super(gson);
+
         this.confirmationCode = confirmationCode;
         this.secretKey = secretKey;
     }
