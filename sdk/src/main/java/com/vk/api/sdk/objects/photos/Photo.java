@@ -157,6 +157,10 @@ public class Photo implements Validable {
     @SerializedName("width")
     private Integer width;
 
+
+    @SerializedName("orig_photo")
+    private PhotoSizes originalPhoto;
+
     public String getAccessKey() {
         return accessKey;
     }
@@ -382,6 +386,15 @@ public class Photo implements Validable {
 
     public Photo setWidth(Integer width) {
         this.width = width;
+        return this;
+    }
+
+    public PhotoSizes getOriginalPhoto() {
+        return originalPhoto;
+    }
+
+    public Photo setOriginalPhoto(PhotoSizes originalPhoto) {
+        this.originalPhoto = originalPhoto;
         return this;
     }
 

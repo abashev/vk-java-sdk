@@ -9,5 +9,11 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-collections4', version: commonsCollectionsVersion
     implementation group: 'commons-io', name: 'commons-io', version: commonsIOVersion
     implementation group: 'org.asynchttpclient', name: 'async-http-client', version: asyncHttpClientVersion
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
+test {
+    useJUnitPlatform()
+}
