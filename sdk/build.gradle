@@ -10,7 +10,7 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: commonsIOVersion
     implementation group: 'org.asynchttpclient', name: 'async-http-client', version: asyncHttpClientVersion
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
